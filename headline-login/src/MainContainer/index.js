@@ -14,14 +14,9 @@ class MainContainer extends Component {
   getNews = async () => {
 
     try {
-      // fetch, which is a new native function to JS
-      // Other Ajax packages commonly used with React are
-      // superagent and axios
-
+      
       const news = await fetch('https://newsapi.org/v2/top-headlines?country=us&apiKey=c52029ac7a854be1b217e85bd9dd9f5a');
       console.log(news)
-      // This line parses the response from JSON, and allows us to read
-      // the nody of our request, which is where the data are
       const newsJson = await news.json();
       console.log(newsJson);
       return newsJson
@@ -35,7 +30,7 @@ class MainContainer extends Component {
 
   /*starNews = (index, e) => {
 
-    // one way is to use the Splice method
+    // future functionality to HIGHLIGHT items
     const state = this.state;
     state.news.splice(index, 1);
     this.setState(state);
@@ -44,7 +39,7 @@ class MainContainer extends Component {
     // the return in a single is implicit
 
     //this.setState({
-    //  crimes: this.state.crimes.filter((crime, i) => i !== index)
+    //  news: this.state.news.filter((news, i) => i !== index)
 
     //})
 
@@ -52,7 +47,6 @@ class MainContainer extends Component {
   }
   */
   componentDidMount(){
-    // We want to setState immediatley after we get the data
     this.getNews().then((data) => {
       console.log(data, 'this is data')
 

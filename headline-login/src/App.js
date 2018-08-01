@@ -19,7 +19,7 @@ login = (username) => {
     username: username,
     logged: true
   });
-  // we will setState of this component, but we will call it in the login
+  
   console.log('login function in app is working for', username)
 }
   render() {
